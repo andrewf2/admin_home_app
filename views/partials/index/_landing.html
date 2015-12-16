@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row">
+        <form role="form" ng-submit="create()">
+            <div class="col-xs-6">
+                <div class="well well-sm"></div>
+                <div class="form-group">
+                    <label for="InputfName">First Name</label>
+                    <div class="input-group">
+                        <input ng-model="user.firstName"class="form-control" name="InputfName" id="InputfName" placeholder="First Name" required="" type="text">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputlName">Last Name</label>
+                    <div class="input-group">
+                        <input ng-model="user.lastName" class="form-control" name="InputlName" id="InputlName" placeholder="Last Name" required="" type="text">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">Enter Email</label>
+                    <div class="input-group">
+                        <input ng-model="user.emailAddress"class="form-control" id="InputEmailFirst" name="InputEmail" placeholder="Enter Email" required="" type="email">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">Select Home</label>
+                    <select ng-model="user.home"name="dropdown">
+                        <option value = "new" selected>New Home</option>
+                        <option value = "{{home.address}}"ng-repeat = "home in homes">{{home.address}}</option>
+                        
+                    </select>
+                </div>
+                <input name="submit" id="submit" value="Submit" class="btn btn-info pull-right" type="submit">
+            </div>
+        </form>
+    </div>
+</div>

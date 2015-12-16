@@ -1,0 +1,36 @@
+{
+  "name": "admin_home_app",
+  "version": "1.0.0",
+  "description": "Admin home app",
+  "main": "index.js",
+  "dependencies": {
+    "nvm": "^0.0.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-nodemon": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-uglify": "^1.5.1",
+    "jshint": "^2.8.0"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewf2/admin_home_app.git"
+  },
+  "keywords": [
+    "Home",
+    "app"
+  ],
+  "author": "Andrew Ferguson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewf2/admin_home_app/issues"
+  },
+  "homepage": "https://github.com/andrewf2/admin_home_app#readme"
+}
