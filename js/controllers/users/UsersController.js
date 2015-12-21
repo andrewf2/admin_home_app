@@ -15,8 +15,11 @@ function UsersController($scope,HomeService,UserService,$location) {
      user.role = "customer"
      user.key = null
      console.log(user.home)
-     if(user.home == "new"){
-       $location.path('/newHome')
+     if(user.home == undefined){
+       $location.path('/newHome/'+ user.emailAddress)
+       UserService.create(user)
+     }else{
+       UserService.create(user) 
      }
    
      

@@ -11,22 +11,6 @@
   
   window.app.constant('BaseURL', 'https://home-owner-center-andrewf2.c9.io');
   
-  window.app.run(function($rootScope,$location,AuthService){
-   
-     $rootScope.$on('$routeChangeStart', function (event) {
-
-        if (!AuthService.isLoggedIn()) {
-            console.log('DENY');
-            event.preventDefault();
-            $location.path('/');
-        }
-        else {
-            console.log('ALLOW');
-        }
-    });
-    
-    
-  })
   
   window.app.config(function($routeProvider){
   $routeProvider.when("/",
@@ -35,7 +19,7 @@
       controller: "UsersController"
      
     }
-  ).when("/newHome",
+  ).when("/newHome/:email",
     {
       templateUrl:"../views/partials/homes/_new.html",
       controller: "HomesController"

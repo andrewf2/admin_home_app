@@ -15,7 +15,7 @@ function CrudService($http,$firebaseObject,BaseURL){
   
   this.destory = function(id){
       
-    return $http.delete(BaseURL + "/" + this.resource + "/"+ id).success(function(response) {return response});
+    return $http.delete(BaseURL + "/" + this.resource + "/"+ id)
     
   }
   
@@ -24,6 +24,12 @@ function CrudService($http,$firebaseObject,BaseURL){
      return $http.post( BaseURL + "/" + this.resource + "/new", data )
      
   }
+  
+  this.save = function(data){
+    return $http.post(BaseURL + "/" + this.resource, data)
+  }
+  
+  
   
 }
 window.app.service('CrudService', CrudService)

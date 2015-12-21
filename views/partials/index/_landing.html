@@ -1,3 +1,4 @@
+<h1>Add New Customer</h1>
 <div class="container-fluid">
     <div class="row">
         <form role="form" ng-submit="create()">
@@ -26,9 +27,9 @@
                 </div>
                 <div class="form-group">
                     <label for="InputEmail">Select Home</label>
-                    <select ng-model="user.home"name="dropdown">
+                    <select ng-model="user.homeId"name="dropdown">
                         <option value = "new" selected>New Home</option>
-                        <option value = "{{home.address}}"ng-repeat = "home in homes">{{home.address}}</option>
+                        <option value = "{{home.id}}"ng-repeat = "home in homes">{{home.address}}</option>
                         
                     </select>
                 </div>
