@@ -21,9 +21,9 @@ function HomesController($scope,HomeService,UserService,$location,$routeParams) 
    $scope.create = function(){
      var home = $scope.home
      HomeService.create(home).success(function(){
-         HomeService.findByAddress(home.address).then(function(home){
+         HomeService.findByAddress(home.address).then(function(promise){
+             $scope.user.homeId = promise.data.id;
              var user = $scope.user
-             user.homeId = home.data.id;
              UserService.save(user);
          })
      })
