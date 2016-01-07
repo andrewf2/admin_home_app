@@ -1,0 +1,46 @@
+
+<h1>Edit {{home.address}}</h1>
+<div class="container-fluid">
+    <div class="row">
+        <form role="form" ng-submit="create()">
+            <div class="col-xs-6">
+                <div class="well well-sm"></div>
+                <div class="form-group">
+                    <label for="Address">Address</label>
+                    <div class="input-group">
+                        <input value = "{{home.address}}"ng-model="home.address"class="form-control" name="Address" id="Address"  required="" type="text">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <div class="input-group">
+                        <input value = "home.price"ng-model="home.price" class="form-control" name="price" id="price" required="" type="number">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="floorplan">Floor Plan</label>
+                    <select ng-model="home.floorplan"name="dropdown">
+                        <option value = "{{floorplan.id}}"ng-repeat = "floorplan in floorplans">{{floorplan.elevation}}</option>
+                        
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ECD">Completion Date</label>
+                    <input value = "home.ECD" ng-model="home.ECD"class="form-control" id="completion-date" name="compleetion-date" type="date">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                </div>
+                <div class = "form-group">
+                  <label for="img">Home Main Image</label>
+                  <input type="file" onchange="previewFile()"><br>
+                  <img src="" height="200" alt="Image preview...">
+                </div>
+                
+                
+                
+                <input name="submit" id="submit" value="Submit" class="btn btn-info pull-right" type="submit">
+            </div>
+        </form>
+    </div>
+</div>

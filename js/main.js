@@ -24,6 +24,12 @@
       templateUrl:"../views/partials/homes/_new.html",
       controller: "HomesController"
     }
+  ).when("/homes/edit/:id",
+    {
+      templateUrl: "../views/partials/homes/_edit.html",
+      controller: "HomeEditController"
+    }
+    
   ).otherwise('/');
   
 

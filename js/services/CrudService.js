@@ -26,7 +26,7 @@ function CrudService($http,$firebaseObject,BaseURL){
   }
   
   this.save = function(data){
-    return $http.post(BaseURL + "/" + this.resource, data)
+    return $http.post(BaseURL + "/" + this.resource,data)
   }
   
   

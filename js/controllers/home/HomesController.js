@@ -23,6 +23,7 @@ function HomesController($scope,HomeService,UserService,$location,$routeParams) 
      HomeService.create(home).success(function(){
          HomeService.findByAddress(home.address).then(function(promise){
              $scope.user.homeId = promise.data.id;
+             console.log(promise);
              var user = $scope.user
              UserService.save(user);
          })
