@@ -3,11 +3,27 @@
 /**
  * @ngInject
  */
-function UsersController($scope,HomeService,UserService,$location) {
-
-   HomeService.all().then(function(promise){
-    $scope.homes = promise.data
+function UsersController($scope,HomeService,UserService,$location,FloorPlanService) {
+   var length;
+   HomeService.all().then(function(homes){
+    $scope.homes = homes.data
+    console.log($scope.homes)
    })
+   
+   
+   
+   FloorPlanService.all().then(function(floorplans){
+    $scope.floorplans = floorplans.data
+    FloorPlanService.getAllImages().then(function(imgs){
+     var imgObj = imgs
+     length = $scope.floorplans.length
+       for(var i = 0; i <= length - 1; i++){
+         $scope.floorplans[i].img = imgObj[ $scope.floorplans[i].id]
+
+       }
+      })
+   })
+  
    
    $scope.create = function(){
      var user = $scope.user

@@ -3,7 +3,8 @@
   var requires = [
 	  "ngResource",
 	  "ngRoute",
-	  "firebase"
+	  "firebase",
+	  "ngFileUpload"
   ];
 
   // mount on window for testing
@@ -28,6 +29,12 @@
     {
       templateUrl: "../views/partials/homes/_edit.html",
       controller: "HomeEditController"
+    }
+    
+  ).when("/floorplans/edit/:id",
+    {
+      templateUrl: "../views/partials/floorplans/_edit.html",
+      controller: "FloorPlansController"
     }
     
   ).otherwise('/');

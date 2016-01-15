@@ -1,9 +1,9 @@
-'use strict';
+
 
 /**
  * @ngInject
  */
-function HomesController($scope,HomeService,UserService,$location,$routeParams) {
+function HomesController($scope,HomeService,UserService,$location,$routeParams,FloorPlanService) {
 
    HomeService.all().then(function(promise){
     $scope.homes = promise.data
@@ -14,6 +14,9 @@ function HomesController($scope,HomeService,UserService,$location,$routeParams) 
        
    })
    
+   FloorPlanService.all().then(function(plans){
+       $scope.floorplans = plans.data
+   })
    
    UserService.all().then(function(data){
        $scope.users = data.data
@@ -22,10 +25,11 @@ function HomesController($scope,HomeService,UserService,$location,$routeParams) 
      var home = $scope.home
      HomeService.create(home).success(function(){
          HomeService.findByAddress(home.address).then(function(promise){
-             $scope.user.homeId = promise.data.id;
-             console.log(promise);
+             $scope.user.homeId = promise.data.id
              var user = $scope.user
-             UserService.save(user);
+             console.log(user)
+             UserService.create(user)
+             
          })
      })
      
