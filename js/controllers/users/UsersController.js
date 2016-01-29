@@ -32,7 +32,7 @@ function UsersController($scope,HomeService,UserService,$location,FloorPlanServi
      user.key = null
       if(user.homeId == 'new'){
        $location.path('/newHome/'+ user.emailAddress)
-       UserService.create(user)
+       console.log(UserService.create(user))
      }else{
        UserService.create(user) 
      }

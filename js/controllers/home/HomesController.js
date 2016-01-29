@@ -3,7 +3,7 @@
 /**
  * @ngInject
  */
-function HomesController($scope,HomeService,UserService,$location,$routeParams,FloorPlanService) {
+function HomesController($scope,HomeService,UserService,$location,$routeParams,FloorPlanService,$q) {
 
    HomeService.all().then(function(promise){
     $scope.homes = promise.data
@@ -18,19 +18,29 @@ function HomesController($scope,HomeService,UserService,$location,$routeParams,F
        $scope.floorplans = plans.data
    })
    
+   function setHomeId(data){
+           var deferred = $q.defer()
+           var updatedUser= $scope.user
+           updatedUser.homeId = data.data.generated_keys[0]
+           deferred.resolve(updatedUser)
+           return deferred.promise
+         }
+   
    UserService.all().then(function(data){
        $scope.users = data.data
    })
    $scope.create = function(){
      var home = $scope.home
-     HomeService.create(home).success(function(){
-         HomeService.findByAddress(home.address).then(function(promise){
-             $scope.user.homeId = promise.data.id
-             var user = $scope.user
+     HomeService.create(home).then(function(data){
+         
+         
+         
+         setHomeId(data).then(function(user){
              console.log(user)
-             UserService.create(user)
-             
+             UserService.save(user)
          })
+         
+        
      })
      
      

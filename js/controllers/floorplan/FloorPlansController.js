@@ -3,7 +3,7 @@
 /**
  * @ngInject
  */
-function FloorPlansController($scope,FloorPlanService,UserService,$location,$routeParams,Upload) {
+function FloorPlansController($scope,FloorPlanService,UserService,$location,$routeParams) {
 
    FloorPlanService.find($routeParams.id).then(function(floorplan){
        $scope.floorplan = floorplan.data
