@@ -3,6 +3,7 @@
   var requires = [
 	  "ngResource",
 	  "ngRoute",
+	  "ngAria",
 	  "firebase"
   ];
 

@@ -6,25 +6,26 @@
 function HomesController($scope,HomeService,UserService,$location,$routeParams,FloorPlanService,$q) {
 
    HomeService.all().then(function(promise){
-    $scope.homes = promise.data
+     $scope.homes = promise.data
    })
    
    UserService.findByEmail($routeParams.email).then(function(promise){
-       $scope.user = promise.data
-       
+     $scope.user = promise.data
+     console.log($scope.user)
    })
    
    FloorPlanService.all().then(function(plans){
-       $scope.floorplans = plans.data
+     $scope.floorplans = plans.data
    })
    
    function setHomeId(data){
-           var deferred = $q.defer()
-           var updatedUser= $scope.user
-           updatedUser.homeId = data.data.generated_keys[0]
-           deferred.resolve(updatedUser)
-           return deferred.promise
-         }
+     var deferred = $q.defer()
+     var updatedUser= $scope.user
+     updatedUser.homeId = data.data.generated_keys[0]
+     deferred.resolve(updatedUser)
+     console.log(updatedUser)
+     return deferred.promise
+   }
    
    UserService.all().then(function(data){
        $scope.users = data.data
@@ -33,12 +34,10 @@ function HomesController($scope,HomeService,UserService,$location,$routeParams,F
      var home = $scope.home
      HomeService.create(home).then(function(data){
          
-         
-         
-         setHomeId(data).then(function(user){
-             console.log(user)
-             UserService.save(user)
-         })
+       setHomeId(data).then(function(user){
+         console.log(user)
+         UserService.save(user)
+       })
          
         
      })

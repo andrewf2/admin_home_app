@@ -13,7 +13,7 @@ function CrudService($http,$firebaseObject,BaseURL){
   }
   
   
-  this.destory = function(id){
+  this.destroy = function(id){
       
     return $http.delete(BaseURL + "/" + this.resource + "/"+ id)
     
