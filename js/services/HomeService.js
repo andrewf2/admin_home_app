@@ -1,4 +1,4 @@
-function HomeService($http,$firebaseObject,BaseURL,CrudService){
+function HomeService($http,$firebaseObject,BaseURL,CrudService,FirebaseImgService){
   this.resource = "homes"
   
   this.findByAddress = function(address){
@@ -6,6 +6,8 @@ function HomeService($http,$firebaseObject,BaseURL,CrudService){
   }
   
   angular.extend(HomeService.prototype, CrudService);
+  
+  angular.extend(HomeService.prototype, FirebaseImgService);
   
 
 }

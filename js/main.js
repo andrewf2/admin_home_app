@@ -12,6 +12,8 @@
   
   window.app.constant('BaseURL', 'https://home-owner-center-andrewf2.c9.io');
   
+  window.app.constant('FireBaseURL', "https://homeownercenter.firebaseio.com/");
+  
   
   window.app.config(function($routeProvider){
   $routeProvider.when("/",
@@ -35,6 +37,12 @@
     {
       templateUrl: "../views/partials/floorplans/_edit.html",
       controller: "FloorPlansController"
+    }
+    
+  ).when("/users/edit/:id",
+    {
+      templateUrl: "../views/partials/users/_edit.html",
+      controller: "UsersController"
     }
     
   ).otherwise('/');

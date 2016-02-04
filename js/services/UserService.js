@@ -4,6 +4,7 @@ function UserService($http,$firebaseObject,BaseURL,CrudService){
   this.findByEmail = function(email){
     return $http.get(BaseURL + "/" + this.resource + "/email/" + email)
   }
+  
   angular.extend(UserService.prototype, CrudService);
 
 }
