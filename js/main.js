@@ -39,6 +39,12 @@
       controller: "FloorPlansController"
     }
     
+  ).when("/floorplans/new",
+    {
+      templateUrl: "../views/partials/floorplans/_new.html",
+      controller: "FloorPlansController"
+    }
+    
   ).when("/users/edit/:id",
     {
       templateUrl: "../views/partials/users/_edit.html",

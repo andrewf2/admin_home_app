@@ -7,6 +7,7 @@ function UsersController($scope,HomeService,UserService,$location,FloorPlanServi
  
    var length;
    
+   
    HomeService.all().then(function(homes){
     $scope.homes = homes.data
     console.log($scope.homes)
@@ -104,7 +105,21 @@ function UsersController($scope,HomeService,UserService,$location,FloorPlanServi
        })
      })
    }
- 
+   
+   $scope.deleteFloorplan = function(id){
+     FloorPlanService.destroy(id).then(function(data){
+      FloorPlanService.all().then(function(plans){
+       $scope.floorplans = plans.data
+       FloorPlanService.getAllImages().then(function(imgs){
+         var imgObj = imgs
+         length = $scope.floorplans.length
+         for(var i = 0; i <= length - 1; i++){
+            $scope.floorplans[i].img = imgObj[ $scope.floorplans[i].id]
+         }
+        })
+      })
+     })
+   }
 }
 
 window.app.controller('UsersController', UsersController);

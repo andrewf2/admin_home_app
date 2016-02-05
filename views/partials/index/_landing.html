@@ -2,13 +2,17 @@
 
 
 <!-- Modal -->
-
+<div class = "col-md-2 col-xs-1"></div>
+<div class = "row container-fluid col-md-8 col-xs-10">
 
     <div class="row">
         
-        <div class="col-md-4 col-xs-12" >
-            <h1>Add New Customer</h1>
-        <form role="form" ng-submit="create()">
+        <div class=" col-xs-12" >
+          
+            
+  <a href="" data-toggle="collapse" data-target="#newcustomer" class"text-center"><div class = "jumbotron text-center" style="border: 2px solid black"><h1>New Customer</h1></div></a>
+  <div id="newcustomer" class="collapse">
+    <form role="form" ng-submit="create()">
             
                 <div class="well well-sm"></div>
                 <div class="form-group">
@@ -43,9 +47,15 @@
                 <input name="submit" id="submit" value="Submit" class="btn btn-info pull-right" type="submit">
             
         </form>
+  </div>
+</div>
+        
         </div>
-        <div class="col-md-4 col-xs-12">
-            <h2>Homes</h2>
+<div class = "row">     
+<div class=" col-xs-12">
+<a href="" data-toggle="collapse" data-target="#homesList" class"text-center"><div class = "jumbotron text-center" style="border: 2px solid black"><h1>Current Homes</h1></div></a>
+  <div id="homesList" class="collapse">
+            
   <table class="table table-striped">
     <thead>
       <tr>
@@ -58,8 +68,8 @@
       <tr ng-repeat = "home in homes">
         <td>{{home.address.streetAddress}}</td>
         <td>{{home.price}}</td>
-        <td><a ng-href = "#/homes/edit/{{home.id}}"<button type="button" class="btn btn-primary">EDIT</button></a> / 
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#{{home.id}}">DELETE</button>
+        <td><a ng-href = "#/homes/edit/{{home.id}}"><button type="button" class="btn btn-primary">EDIT</button></a> / 
+        <a ng-href = ""><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#{{home.id}}">DELETE</button></a>
         <div id="{{home.id}}" class="modal fade" role="dialog">
           <div class="modal-dialog">
 
@@ -77,17 +87,20 @@
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
              </div>
             </div>
-
             </div>
            </div>
       </tr>
-     
     </tbody>
   </table>
 </div>
+</div>
+</div> 
+<div class = "row">
+     <div class="col-xs-12">
+        <a href="" data-toggle="collapse" data-target="#usersList" class"text-center"><div class = "jumbotron text-center" style="border: 2px solid black"><h1>Customers</h1></div></a>
+  <div id="usersList" class="collapse">
 
- <div class="col-md-4 col-xs-12">
-            <h2>Users</h2>
+            
   <table class="table table-striped">
     <thead>
       <tr>
@@ -101,7 +114,7 @@
         <td>{{user.emailAddress}}</td>
         <td>{{user.home.address.streetAddress}}</td>
         <td><a ng-href = "#/users/edit/{{user.id}}"<button type="button" class="btn btn-primary">EDIT</button></a> / 
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#{{user.id}}">DELETE</button>
+        <a ng-href = ""><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#{{user.id}}">DELETE</button></a>
         <div id="{{user.id}}" class="modal fade" role="dialog">
           <div class="modal-dialog">
 
@@ -127,14 +140,13 @@
     </tbody>
   </table>
 </div>
-
-
-
+</div>
     </div>
+    
     <div class = "row">
         <div class = "container-fluid">
             <div class = "col-xs-12" style="border: 2px solid black">
-                <div><h1>Floorplans</h1><a ng-href = "#/floorplans/new">New Floorplan</a></div>
+                <div><h1>Floor Plans</h1><a ng-href = "#/floorplans/new">New Floor Plan</a></div>
                 <div ng-repeat = "floorplan in floorplans" class="col-md-2 col-xs-6">
                   <div class="container-fluid">
                    <div class="text-vertical-center">
@@ -145,11 +157,35 @@
                     <p>Bedrooms: {{floorplan.bedAmt}}</p>
                     <p>Bathrooms: {{floorplan.bathAmt}}</p>
                     <a ng-href = "#/floorplans/edit/{{floorplan.id}}">Edit Floorplan</a>
+                    <a ng-href = ""><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#{{floorplan.id}}">Delete</button></a>
+                    <div id="{{floorplan.id}}" class="modal fade" role="dialog">
+                   <div class="modal-dialog">
+
+          <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+               <h4 class="modal-title">{{floorplan.name}}</h4>
+              </div>
+            <div class="modal-body">
+            <p>Are you sure you want to delete {{floorplan.name}} floor plan?</p>
+            </div>
+            <div class="modal-footer">
+            <a ng-href = "" ng-click = deleteFloorplan(floorplan.id)><button type="button" class="btn btn-danger" data-dismiss="modal" >DELETE</button></a>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             </div>
+            </div>
+
+            </div>
+           </div>
                    </div>
                   </div>
+                  
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class = "col-md-2 col-xs-1"></div>
+
 
